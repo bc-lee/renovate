@@ -94,8 +94,13 @@ export function generateBranchConfig(
         upg.newDigest.replace('sha256:', '').substring(0, 7);
     }
     if (upg.isDigest || upg.isPinDigest) {
-      upg.displayFrom = upg.currentDigestShort;
-      upg.displayTo = upg.newDigestShort;
+      if (upg.showLongerDigests) {
+        upg.displayFrom = upg.currentDigest;
+        upg.displayTo = upg.newDigest;
+      } else {
+        upg.displayFrom = upg.currentDigestShort;
+        upg.displayTo = upg.newDigestShort;
+      }
     } else if (upg.isLockfileUpdate) {
       upg.displayFrom = upg.currentVersion;
       upg.displayTo = upg.newVersion;

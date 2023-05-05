@@ -2634,6 +2634,12 @@ const options: RenovateOptions[] = [
     globalOnly: true,
     default: [],
   },
+  {
+    name: 'showLongerDigests',
+    description: `Whether to show longer digests in the PR body.`,
+    type: 'boolean',
+    default: false,
+  },
 ];
 
 export function getOptions(): RenovateOptions[] {
